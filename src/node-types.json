@@ -1,0 +1,788 @@
+[
+  {
+    "type": "bit_range",
+    "named": true,
+    "fields": {
+      "end_bit": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bit",
+            "named": true
+          }
+        ]
+      },
+      "start_bit": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bit",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "channel_configuration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "tcaninit_command",
+          "named": true
+        },
+        {
+          "type": "tcans_ch_def_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true,
+    "fields": {
+      "message": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "configuration_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "channel_configuration",
+          "named": true
+        },
+        {
+          "type": "diagnose_configuration",
+          "named": true
+        },
+        {
+          "type": "tcans_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "data_sequence",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "byte_data",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagnose_configuration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "tdiagnose_dtc_command",
+          "named": true
+        },
+        {
+          "type": "tdiagnose_keyk_command",
+          "named": true
+        },
+        {
+          "type": "tdiagnose_rid_command",
+          "named": true
+        },
+        {
+          "type": "tdiagnose_sid_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "configuration_block",
+          "named": true
+        },
+        {
+          "type": "test_suite",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tcaninit_command",
+    "named": true,
+    "fields": {
+      "arbitration_baudrate": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "channel_index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "data_baudrate": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "device_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "device_index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tcanr_bit_compare_command",
+    "named": true,
+    "fields": {
+      "expected_bit_range": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "bit_range",
+            "named": true
+          }
+        ]
+      },
+      "expected_data": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "message_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      },
+      "receive_channel": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "wait_time": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tcanr_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "tcanr_compare_command",
+          "named": true
+        },
+        {
+          "type": "tcanr_print_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tcanr_compare_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "tcanr_bit_compare_command",
+          "named": true
+        },
+        {
+          "type": "tcanr_direct_compare_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tcanr_direct_compare_command",
+    "named": true,
+    "fields": {
+      "expected_data": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "data_sequence",
+            "named": true
+          }
+        ]
+      },
+      "message_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      },
+      "receive_channel": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "wait_time": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tcanr_print_command",
+    "named": true,
+    "fields": {
+      "expected_bit_range": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "bit_range",
+            "named": true
+          }
+        ]
+      },
+      "message_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      },
+      "receive_channel": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tcans_ch_def_command",
+    "named": true,
+    "fields": {
+      "channel_index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tcans_command",
+    "named": true,
+    "fields": {
+      "count": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "message_data": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "data_sequence",
+            "named": true
+          }
+        ]
+      },
+      "message_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      },
+      "period": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "send_channel": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tdelay_command",
+    "named": true,
+    "fields": {
+      "delay_time": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tdiagnose_dtc_command",
+    "named": true,
+    "fields": {
+      "description": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "dtc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tdiagnose_keyk_command",
+    "named": true,
+    "fields": {
+      "keyk": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tdiagnose_rid_command",
+    "named": true,
+    "fields": {
+      "response_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "tdiagnose_sid_command",
+    "named": true,
+    "fields": {
+      "request_id": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "hex_number_without_0x",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "test_case",
+    "named": true,
+    "fields": {
+      "id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "integer",
+            "named": true
+          }
+        ]
+      },
+      "title": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "test_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "test_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "tcanr_command",
+          "named": true
+        },
+        {
+          "type": "tcans_command",
+          "named": true
+        },
+        {
+          "type": "tdelay_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "test_suite",
+    "named": true,
+    "fields": {
+      "title": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "test_case",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "bit",
+    "named": true
+  },
+  {
+    "type": "byte_data",
+    "named": true
+  },
+  {
+    "type": "hex_number",
+    "named": true
+  },
+  {
+    "type": "hex_number_without_0x",
+    "named": true
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "tcaninit",
+    "named": false
+  },
+  {
+    "type": "tcanr",
+    "named": false
+  },
+  {
+    "type": "tcans",
+    "named": false
+  },
+  {
+    "type": "tcans_ch_def",
+    "named": false
+  },
+  {
+    "type": "tdelay",
+    "named": false
+  },
+  {
+    "type": "tdiagnose_dtc",
+    "named": false
+  },
+  {
+    "type": "tdiagnose_keyk",
+    "named": false
+  },
+  {
+    "type": "tdiagnose_rid",
+    "named": false
+  },
+  {
+    "type": "tdiagnose_sid",
+    "named": false
+  },
+  {
+    "type": "tend",
+    "named": false
+  },
+  {
+    "type": "tnote",
+    "named": false
+  },
+  {
+    "type": "tset",
+    "named": false
+  },
+  {
+    "type": "tstart",
+    "named": false
+  },
+  {
+    "type": "ttitle",
+    "named": false
+  },
+  {
+    "type": "ttitle-end",
+    "named": false
+  }
+]
