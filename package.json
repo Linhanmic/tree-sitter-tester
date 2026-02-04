@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-tester",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "DSL for ECU test! Make test easy -_-",
   "repository": "https://github.com/tree-sitter/tree-sitter-tester",
   "license": "MIT",

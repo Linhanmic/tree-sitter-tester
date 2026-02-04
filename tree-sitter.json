@@ -14,7 +14,7 @@
     }
   ],
   "metadata": {
-    "version": "0.1.0",
+    "version": "1.0.0",
     "license": "MIT",
     "description": "DSL for ECU test! Make test easy -_-",
     "authors": [
